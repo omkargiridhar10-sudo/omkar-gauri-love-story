@@ -159,6 +159,39 @@ document.getElementById("seconds").textContent=Math.floor(diff/1000)%60;
 }
 update();
 setInterval(update,1000);
+ const loveQuotes = [
+"In a world full of people, my heart chose you. ❤️",
+"Every day with you is my favourite day. 💗",
+"You're not just my love, you're my happy place. 🌸",
+"If I could choose again, I'd still choose you. 💍",
+"My favourite notification will always be your name. 🥹",
+"One lifetime with you still wouldn't be enough. ♾️",
+"You make my ordinary days extraordinary. ✨",
+"Every heartbeat whispers your name, Gauri. 💕",
+"Distance means nothing when someone means everything.",
+"You're my today, tomorrow and every forever. ❤️",
+"I fall in love with you a little more every day.",
+"Our story is my favourite love story. 🌷",
+"You're the reason behind my biggest smiles.",
+"Home is wherever you are, Gauri. 🏡",
+"Out of all the stars, I'd still look for you. ⭐"
+];
+
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Kolkata",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(new Date());
+
+const startOfYear = new Date(today.slice(0,4) + "-01-01T00:00:00+05:30");
+const todayDate = new Date(today + "T00:00:00+05:30");
+const dayNumber = Math.floor(
+  (todayDate - startOfYear) / 86400000
+);
+
+document.getElementById("dailyQuote").textContent =
+  loveQuotes[dayNumber % loveQuotes.length];
 </script>
 </body>
 </html>
