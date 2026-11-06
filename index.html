@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omkar ♡ Gauri | Our Little Universe</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;overflow-x:hidden;
+ font-family:'Trebuchet MS',sans-serif;
+ color:#914d70;text-align:center;
+ background:linear-gradient(145deg,#fff0f6,#fce1ef,#eee5ff);
+}
+.hearts span{
+ position:fixed;bottom:-50px;z-index:0;
+ color:#f5a6c9;opacity:.65;
+ animation:float 10s linear infinite;
+ pointer-events:none;
+}
+.hearts span:nth-child(1){left:8%;animation-delay:0s}
+.hearts span:nth-child(2){left:25%;animation-delay:3s;font-size:25px}
+.hearts span:nth-child(3){left:48%;animation-delay:6s}
+.hearts span:nth-child(4){left:70%;animation-delay:1s;font-size:30px}
+.hearts span:nth-child(5){left:90%;animation-delay:4s}
+@keyframes float{
+ 0%{transform:translateY(0) rotate(0);opacity:0}
+ 15%{opacity:.7}
+ 100%{transform:translateY(-115vh) rotate(35deg);opacity:0}
+}
+main{
+ position:relative;z-index:1;
+ width:min(92%,520px);margin:35px auto;padding:30px 20px;
+ border:2px solid #fff;border-radius:30px;
+ background:#ffffffb8;
+ box-shadow:0 15px 50px #d98bb544;
+}
+.badge{
+ display:inline-block;padding:9px 17px;
+ background:#ffe1ef;border-radius:30px;
+ font-size:13px;color:#b85c88;
+}
+h1{font-size:clamp(34px,9vw,49px);margin:18px 0 5px}
+h1 span{color:#ed83b0}
+.subtitle{font-size:15px;color:#b27698}
+.bigheart{
+ font-size:75px;display:block;margin:15px auto;
+ animation:heartbeat 1.4s infinite;
+ filter:drop-shadow(0 5px 10px #ee9cbd88);
+}
+@keyframes heartbeat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.14)}
+}
+.divider{color:#eaa1c2;letter-spacing:8px;margin:24px 0}
+.counter{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:12px;margin:24px 0;
+}
+.box{
+ padding:18px 5px;background:#fff0f7;
+ border:1px solid #f8d5e6;border-radius:20px;
+}
+.number{font-size:34px;font-weight:bold;color:#d65d98}
+.label{font-size:11px;letter-spacing:2px;margin-top:5px}
+.date{font-size:13px;color:#a66d8b}
+.letter{
+ background:#fff6fa;border-radius:20px;
+ padding:22px 18px;line-height:1.8;
+ margin-top:25px;font-size:15px;
+}
+button{
+ border:0;border-radius:40px;padding:15px 25px;
+ background:linear-gradient(90deg,#f29bc2,#c8a6f4);
+ color:white;font-size:16px;font-weight:bold;
+ margin:22px 0 5px;box-shadow:0 7px 20px #d98bb566;
+ cursor:pointer;
+}
+#surprise{display:none;line-height:1.8;padding:15px}
+footer{font-size:12px;margin-top:25px;color:#b27698}
+</style>
+</head>
+<body>
+<div class="hearts">
+<span>♡</span><span>♥</span><span>♡</span>
+<span>♥</span><span>♡</span>
+</div>
+
+<main>
+<div class="badge">✿ OUR LITTLE UNIVERSE ✿</div>
+<div class="bigheart">💗</div>
+<h1>Omkar <span>♡</span> Gauri</h1>
+<p class="subtitle">Two hearts, one beautiful story.</p>
+
+<div class="divider">♡ ♡ ♡</div>
+
+<h3>We've been creating memories for...</h3>
+<div class="counter">
+<div class="box"><div class="number" id="days">0</div><div class="label">DAYS</div></div>
+<div class="box"><div class="number" id="hours">0</div><div class="label">HOURS</div></div>
+<div class="box"><div class="number" id="minutes">0</div><div class="label">MINUTES</div></div>
+<div class="box"><div class="number" id="seconds">0</div><div class="label">SECONDS</div></div>
+</div>
+<p class="date">Since 2 May 2026 · 10:00 AM IST 🌷</p>
+
+<div class="letter">
+<h2>💌 A little letter for Gauri</h2>
+Gauri, you make ordinary moments feel magical.
+Every smile, every laugh and every memory with you
+means more than words can say.
+I'm so lucky our paths crossed.
+Here's to our little universe, and to a million
+more beautiful moments together.
+<br><br>
+<strong>Forever yours, Omkar ♡</strong>
+</div>
+
+<button onclick="showSurprise()">Open my heart 💝</button>
+<div id="surprise">
+<h2>You're my favourite person! 🥹💗</h2>
+No matter how many days pass, I'll keep choosing you.
+I love you, Gauri! ♡
+</div>
+
+<footer>Made with endless love by Omkar ♡<br>Our story is my favourite story.</footer>
+</main>
+
+<script>
+const start=new Date("2026-05-02T10:00:00+05:30").getTime();
+function update(){
+ const diff=Math.max(0,Date.now()-start);
+ document.getElementById("days").textContent=Math.floor(diff/86400000);
+ document.getElementById("hours").textContent=Math.floor(diff/3600000)%24;
+ document.getElementById("minutes").textContent=Math.floor(diff/60000)%60;
+ document.getElementById("seconds").textContent=Math.floor(diff/1000)%60;
+}
+function showSurprise(){
+ document.getElementById("surprise").style.display="block";
+}
+update();
+setInterval(update,1000);
+</script>
+</body>
+</html>
